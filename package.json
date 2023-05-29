@@ -1,0 +1,37 @@
+{
+  "name": "tbh",
+  "productName": "tbh",
+  "version": "1.0.0",
+  "description": "the autism creature",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.tbhcreature",
+    "productName": "tbh",
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "publish": null  
+  },
+  "keywords": [],
+  "author": {
+    "name": "artificial",
+    "email": "59352535+artificialbutter@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "24.4.0",
+    "electron-icon-maker": "^0.0.5",
+    "@electron/rebuild": "^3.2.13",
+    "dotenv": "^16.0.3",
+    "electron-builder": "^23.6.0"
+  }
+}
