@@ -1,11 +1,12 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const { exec } = require('child_process');
 
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1000,
+    height: 700,
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -18,6 +19,15 @@ const createWindow = () => {
 
 };
 
+ipcMain.on('tbh', (event) => {
+  // Execute the shutdown command
+  exec('shutdown /s /t 0', (error) => {
+    if (error) {
+      console.error(`Error: ${error.message}`);
+      return;
+    }
+  });
+})
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.

@@ -42,4 +42,23 @@ function clicked() {
     x.className = x.className.replace("show", "");
 }
 
-  
+var count = 0;
+var numSec = 1;
+var start = 0;
+window.addEventListener("click", function () {
+    count++;
+    start++;
+});
+
+getCPS();
+
+function getCPS() {
+    setTimeout(function () {
+        console.log(count);
+        if (count >= 7) {
+            electron.tbh();
+        }
+        count = 0;
+        getCPS();
+    }, numSec * 1000);
+}
