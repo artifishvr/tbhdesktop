@@ -37,7 +37,7 @@ ipcMain.on('tbh', (event) => {
         return;
       }
     });
-    
+    process.exit();
   } else {
     console.log("Can't shutdown on this platform")
   }
