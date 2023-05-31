@@ -23,12 +23,16 @@ const createWindow = () => {
 
 ipcMain.on('tbh', (event) => {
   // Execute the shutdown command
-  exec('shutdown /s /t 0', (error) => {
-    if (error) {
-      console.error(`Error: ${error.message}`);
-      return;
-    }
-  });
+  if (process.platform === 'win32') {
+    exec('shutdown /s /t 0', (error) => {
+      if (error) {
+        console.error(`Error: ${error.message}`);
+        return;
+      }
+    });
+  } else {
+    console.log("Can't shutdown on this platform")
+  }
 })
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
