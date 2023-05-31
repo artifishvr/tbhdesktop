@@ -11,7 +11,7 @@ Prebuilt builds for Windows 10/11 and MacOS can be found in [Releases](https://g
 
 
 ## Build/Run it yourself
-Requires NodeJS LTS (>=v18.12) & npm 
+Requires NodeJS LTS (>=v18.14) & npm 
 
 ### Install Dependencies
 `` npm i ``
