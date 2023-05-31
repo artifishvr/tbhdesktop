@@ -7,8 +7,8 @@ const { autoUpdater } = require("electron-updater")
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 700,
+    width: 700,
+    height: 770,
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
