@@ -4,17 +4,14 @@ tbh for your desktop
 
 ## Usage
 
-Prebuilt builds can be found in [Releases](https://github.com/artificialbutter/tbhdesktop/releases)
+Prebuilt builds for Windows 10/11 and MacOS can be found in [Releases](https://github.com/artificialbutter/tbhdesktop/releases)
 
 1. Install
 2. Click
 
 
 ## Build/Run it yourself
-Requires NodeJS LTS & npm 
-
-These instructions have only been tested on Windows with NodeJS v18.15.0
-
+Requires NodeJS LTS (>=v18.12) & npm 
 
 ### Install Dependencies
 `` npm i ``
