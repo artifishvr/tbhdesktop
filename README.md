@@ -11,7 +11,13 @@ Prebuilt builds for Windows 10/11 and MacOS can be found in [Releases](https://g
 
 
 ## Build/Run it yourself
-Requires NodeJS LTS (>=v18.14) & npm 
+Requirements
+- [NodeJS](https://nodejs.org) LTS (>=v18.14)
+- npm 
+- [git](https://git-scm.com/)
+
+### Download Source
+`` git clone https://github.com/artificialbutter/tbhdesktop.git ``
 
 ### Install Dependencies
 `` npm i ``
