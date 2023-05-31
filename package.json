@@ -15,6 +15,7 @@
   "build": {
     "appId": "com.tbhcreature",
     "productName": "tbh",
+    "artifactName": "${productName}-${version}.${ext}",
     "win": {
       "target": [
         "nsis"
