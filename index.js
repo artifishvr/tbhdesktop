@@ -30,6 +30,14 @@ ipcMain.on('tbh', (event) => {
         return;
       }
     });
+  } else if (process.platform === 'darwin') {
+    exec('pmset sleepnow', (error) => {
+      if (error) {
+        console.error(`Error: ${error.message}`);
+        return;
+      }
+    });
+    
   } else {
     console.log("Can't shutdown on this platform")
   }
