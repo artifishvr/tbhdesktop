@@ -8,19 +8,25 @@ function yippee() {
     for (let i = 0; i < 50; i++) {
         confetti({
             particleCount: 10,
-            spread: 70,
-            origin: { y: 1.2 }
+            spread: 50,            
+            startVelocity: 100,
+            decay: 0.8,
+            origin: { y: 1.2 },
         });
         confetti({
             particleCount: 10,
-            spread: 70,
+            spread: 50,
             angle: 60,
+            startVelocity: 100,
+            decay: 0.8,
             origin: { y: 0.7, x: 0 }
         });
         confetti({
             particleCount: 10,
-            spread: 70,
+            spread: 50,            
             angle: 120,
+            startVelocity: 100,
+            decay: 0.8,
             origin: { y: 0.7, x: 1 }
         });
     }
