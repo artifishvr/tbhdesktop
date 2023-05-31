@@ -9,7 +9,8 @@
     "start": "electron .",
     "rebuild": "electron-rebuild",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder -p onTagOrDraft"
+    "dist": "electron-builder -p never",
+    "publish": "electron-builder -p always"
   },
   "build": {
     "appId": "com.tbhcreature",
