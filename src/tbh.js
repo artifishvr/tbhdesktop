@@ -61,7 +61,7 @@ getCPS();
 function getCPS() {
     setTimeout(function () {
         console.log(count);
-        if (count >= 7) {
+        if (count >= 5) {
             electron.tbh();
         }
         count = 0;

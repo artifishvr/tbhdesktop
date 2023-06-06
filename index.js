@@ -24,12 +24,13 @@ const createWindow = () => {
 ipcMain.on('tbh', (event) => {
   // Execute the shutdown command
   if (process.platform === 'win32') {
-    exec('shutdown /s /t 0', (error) => {
+    exec('rundll32.exe powrprof.dll, SetSuspendState Sleep', (error) => {
       if (error) {
         console.error(`Error: ${error.message}`);
         return;
       }
     });
+    process.exit();
   } else if (process.platform === 'darwin') {
     exec('pmset sleepnow', (error) => {
       if (error) {
