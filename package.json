@@ -34,7 +34,7 @@
     "name": "artificial",
     "email": "59352535+artificialbutter@users.noreply.github.com"
   },
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "electron-updater": "^5.3.0"
   },
