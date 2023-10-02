@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Menu, Tray } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const { exec } = require('child_process');
 const { autoUpdater } = require("electron-updater")
@@ -51,29 +51,6 @@ app.on('ready', () => {
   createWindow();
   autoUpdater.checkForUpdatesAndNotify();
 
-  // tray stuff
-  var contextMenu = Menu.buildFromTemplate([
-    { label: 'Show App', click:  function(){
-        mainWindow.show();
-    } },
-    { label: 'Quit', click:  function(){
-        mainWindow.destroy();
-        app.quit();
-    } }
-]);
-
-  tray = new Tray(path.join(__dirname, 'build/icon.png'));
-  tray.setToolTip('tbh');
-  tray.setContextMenu(contextMenu);
-
-  tray.on('click', () => {
-    if (!yippeeWindow) {
-      createYippee();
-      playSoundHidden();
-    } else if (!playing) {
-      playSoundHidden();
-    }
-  })
 });
 
 
@@ -83,7 +60,6 @@ ipcMain.on('tbh', (event) => {
     exec('rundll32.exe powrprof.dll, SetSuspendState Sleep', (error) => {
       if (error) {
         console.error(`Error: ${error.message}`);
-        return;
       }
     });
     process.exit();
@@ -91,7 +67,6 @@ ipcMain.on('tbh', (event) => {
     exec('pmset sleepnow', (error) => {
       if (error) {
         console.error(`Error: ${error.message}`);
-        return;
       }
     });
     process.exit();

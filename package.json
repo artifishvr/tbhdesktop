@@ -27,6 +27,12 @@
         "dmg",
         "zip"
       ]
+    },
+    "linux": {
+      "category": "Audio",
+      "target": [
+        "AppImage"
+      ]
     }
   },
   "keywords": [],
