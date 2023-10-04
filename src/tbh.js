@@ -31,7 +31,7 @@ function yippee() {
         });
     }
 
-    var audio = document.createElement('audio');
+    let audio = document.createElement('audio');
     audio.src = "yippee.mp3";
     document.body.appendChild(audio);
     audio.play();
@@ -41,16 +41,16 @@ function yippee() {
     }
 }
 
-var clickedonce = false;
-var x = document.getElementById("snackbar");
+let clickedonce = false;
+let x = document.getElementById("snackbar");
 function clicked() {
     clickedonce = true;
     x.className = x.className.replace("show", "");
 }
 
-var count = 0;
-var numSec = 1;
-var start = 0;
+let count = 0;
+let numSec = 1;
+let start = 0;
 window.addEventListener("click", function () {
     count++;
     start++;
