@@ -4,7 +4,7 @@ tbh for your desktop
 
 ## Usage
 
-Prebuilt builds for Windows 10/11 and MacOS can be found in [Releases](https://github.com/artificialbutter/tbhdesktop/releases)
+Prebuilt builds for Windows 10/11, MacOS, and Linux (AppImage, deb) can be found in [Releases](https://github.com/artificialbutter/tbhdesktop/releases)
 
 1. Install
 2. Click
@@ -20,17 +20,15 @@ Requirements
 `` git clone https://github.com/artificialbutter/tbhdesktop.git ``
 
 ### Install Dependencies
-`` npm i ``
-
-`` npm run rebuild ``
+`` npm ci ``
 
 ### Start (Optional)
 `` npm start ``
 
-### Build EXE (Optional)
+### Build executable (Optional)
 `` npm run dist ``
 
-you can find the built EXE in /dist after it is done building
+you can find the built executable in /dist after it completes building
 
 ## Contributing
 
@@ -38,4 +36,4 @@ don't.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
