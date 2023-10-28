@@ -13,20 +13,20 @@ Prebuilt builds for Windows 10/11, MacOS, and Linux (AppImage, deb) can be found
 ## Build/Run it yourself
 Requirements
 - [NodeJS](https://nodejs.org) LTS (>=v18.14)
-- npm 
+- pnpm 
 - [git](https://git-scm.com/)
 
 ### Download Source
 `` git clone https://github.com/artificialbutter/tbhdesktop.git ``
 
 ### Install Dependencies
-`` npm ci ``
+`` pnpm ci ``
 
 ### Start (Optional)
-`` npm start ``
+`` pnpm start ``
 
 ### Build executable (Optional)
-`` npm run dist ``
+`` pnpm run dist ``
 
 you can find the built executable in /dist after it completes building
 
