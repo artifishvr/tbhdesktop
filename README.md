@@ -1,6 +1,7 @@
 # tbh desktop
-
 tbh for your desktop
+
+now on mobile too! [artificialbutter/tbhmobile](https://github.com/artificialbutter/tbhmobile)
 
 ## Usage
 
