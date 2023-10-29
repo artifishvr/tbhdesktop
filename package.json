@@ -25,7 +25,8 @@
       "target": [
         "dmg",
         "zip"
-      ]
+      ],
+      "identity": "Apple Development: dev@arti.lol (UK25TZ6YCW)"
     },
     "linux": {
       "category": "Audio",
