@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const { exec } = require('child_process');
 const { autoUpdater } = require("electron-updater")
+const client = require('discord-rich-presence')('1168086644574933052');
 
 let mainWindow;
 
@@ -30,6 +31,13 @@ app.on('ready', () => {
   createWindow();
   autoUpdater.checkForUpdatesAndNotify();
 
+  client.updatePresence({
+    details: 'yippie-ing',
+    startTimestamp: Date.now(),
+    largeImageKey: 'tbh',
+    largeImageText: 'tbh',
+    buttons: [{ label: 'get the app', url: 'https://github.com/artificialbutter/tbhdesktop' }]
+  });
 });
 
 
