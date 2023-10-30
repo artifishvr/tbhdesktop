@@ -20,11 +20,6 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'src/index.html'));
-
-  mainWindow.on('minimize', function (event) {
-    event.preventDefault();
-    mainWindow.hide();
-  });
 };
 
 app.on('ready', () => {
