@@ -1,14 +1,14 @@
-function tbh() {
-    console.log("the creature")
-    // TODO: add right click to shatter
-    yippee();
-}
+document.addEventListener('contextmenu', function (ev) {
+    ev.preventDefault();
+    shatter();
+    return false;
+}, false);
 
 function yippee() {
     for (let i = 0; i < 50; i++) {
         confetti({
             particleCount: 10,
-            spread: 50,            
+            spread: 50,
             startVelocity: 100,
             decay: 0.8,
             origin: { y: 1.2 },
@@ -23,7 +23,7 @@ function yippee() {
         });
         confetti({
             particleCount: 10,
-            spread: 50,            
+            spread: 50,
             angle: 120,
             startVelocity: 100,
             decay: 0.8,
@@ -41,11 +41,17 @@ function yippee() {
     }
 }
 
-let clickedonce = false;
-let x = document.getElementById("snackbar");
-function clicked() {
-    clickedonce = true;
-    x.className = x.className.replace("show", "");
+function shatter() {
+    let shatter = document.getElementById("shattervid");
+    shatter.volume = 0.5;
+    confetti.reset();
+    shatter.style.display = "block";
+    shatter.play();
+    confetti.reset();
+
+    shatter.onended = function () {
+        shatter.style.display = "none";
+    }
 }
 
 let count = 0;
