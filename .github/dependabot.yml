@@ -5,5 +5,5 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-  assignees:
+    assignees:
       - "artificialbutter"
