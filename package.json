@@ -42,7 +42,7 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "electron-updater": "^6.1.4",
+    "electron-updater": "^6.1.7",
     "discord-rich-presence": "^0.0.8"
   },
   "devDependencies": {
