@@ -21,3 +21,17 @@ body {
   top: 0;
   left: 0;
 }
+
+#settings-icon {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2; /* Higher z-index so it's above the image */
+}
+
+#settings-icon:hover {
+  color: lightgrey;
+}
