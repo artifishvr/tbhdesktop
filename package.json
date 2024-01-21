@@ -1,7 +1,7 @@
 {
   "name": "tbh",
   "productName": "tbh",
-  "version": "1.9.3",
+  "version": "1.9.3-hotfix.1",
   "description": "the autism creature",
   "main": "index.js",
   "repository": "https://github.com/artificialbutter/tbhdesktop",

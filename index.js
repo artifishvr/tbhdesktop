@@ -23,16 +23,12 @@ const createWindow = () => {
     if (!preferences.value('toggles.tray')[0]) return;
     mainWindow.hide();
 
-    let tray = new Tray(path.join(__dirname, 'build/icon.png'));
+    let tray = new Tray(path.join(__dirname, 'src/trayicon.png'));
 
     tray.on('click', () => {
       mainWindow.show();
       tray.destroy();
     });
-  });
-
-  mainWindow.on('restore', () => {
-    mainWindow.show();
   });
 
   // and load the index.html of the app.
@@ -78,7 +74,7 @@ const preferences = new ElectronPreferences({
                 options: [
                   { label: "Minimize to Tray", value: true }
                 ],
-                help: 'When you press X, tbh will go sit in the tray, instead of closing.',
+                help: 'When you press the minimize button, tbh will go hide in the system tray.',
               },
             ]
           },
