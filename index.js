@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, Tray } = require('electron');
 const path = require('path');
 const { exec } = require('child_process');
 const { autoUpdater } = require("electron-updater")
@@ -19,6 +19,22 @@ const createWindow = () => {
     }
   });
 
+  mainWindow.on('minimize', () => {
+    if (!preferences.value('toggles.tray')[0]) return;
+    mainWindow.hide();
+
+    let tray = new Tray(path.join(__dirname, 'build/icon.png'));
+
+    tray.on('click', () => {
+      mainWindow.show();
+      tray.destroy();
+    });
+  });
+
+  mainWindow.on('restore', () => {
+    mainWindow.show();
+  });
+
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'src/index.html'));
 };
@@ -33,8 +49,8 @@ const preferences = new ElectronPreferences({
 
   defaults: {
     toggles: {
-      tray: false,
-      crash: true,
+      crash: [true],
+      tray: [],
     },
   },
 
@@ -55,7 +71,15 @@ const preferences = new ElectronPreferences({
                   { label: "Yippee-overload", value: true }
                 ],
                 help: 'The "crash" when you click too much.',
-              }
+              },
+              {
+                key: 'tray',
+                type: "checkbox",
+                options: [
+                  { label: "Minimize to Tray", value: true }
+                ],
+                help: 'When you press X, tbh will go sit in the tray, instead of closing.',
+              },
             ]
           },
         ]
