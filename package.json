@@ -1,7 +1,7 @@
 {
   "name": "tbh",
   "productName": "tbh",
-  "version": "1.9.4",
+  "version": "1.10.0",
   "description": "the autism creature",
   "main": "index.js",
   "repository": "https://github.com/artificialbutter/tbhdesktop",
@@ -42,7 +42,7 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "discord-rich-presence": "^0.0.8",
+    "discord-rpc": "^4.0.1",
     "electron-preferences": "^2.8.2",
     "electron-updater": "^6.1.7"
   },

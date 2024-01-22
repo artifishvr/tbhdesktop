@@ -2,8 +2,8 @@ const { app, BrowserWindow, ipcMain, Tray } = require('electron');
 const path = require('path');
 const { exec } = require('child_process');
 const { autoUpdater } = require("electron-updater")
-const client = require('discord-rich-presence')('1168086644574933052');
 const ElectronPreferences = require('electron-preferences');
+const DiscordRPC = require('discord-rpc');
 
 let mainWindow;
 
@@ -47,6 +47,7 @@ const preferences = new ElectronPreferences({
     toggles: {
       crash: [true],
       tray: [],
+      disableRPC: [],
     },
   },
 
@@ -76,6 +77,14 @@ const preferences = new ElectronPreferences({
                 ],
                 help: 'When you press the minimize button, tbh will go hide in the system tray.',
               },
+              {
+                key: 'disableRPC',
+                type: "checkbox",
+                options: [
+                  { label: "Disable Rich Presence", value: true }
+                ],
+                help: 'Disable Discord rich presence integration. Requires restart.',
+              },
             ]
           },
         ]
@@ -84,23 +93,28 @@ const preferences = new ElectronPreferences({
   ]
 });
 
+const clientId = '1168086644574933052';
+const rpc = new DiscordRPC.Client({ transport: 'ipc' });
+const startTimestamp = new Date();
+
+async function setActivity() {
+  if (!rpc || !mainWindow || preferences.value('toggles.disableRPC')[0]) return;
+
+  const clicks = await mainWindow.webContents.executeJavaScript('clicks');
+
+  rpc.setActivity({
+    details: `yippie-ing`,
+    state: `yippied ${clicks} times`,
+    startTimestamp,
+    largeImageKey: 'tbh',
+    largeImageText: `tbh v${app.getVersion()}`,
+    buttons: [{ label: 'get the app', url: 'https://github.com/artificialbutter/tbhdesktop' }]
+  });
+}
+
 app.on('ready', () => {
   createWindow();
   autoUpdater.checkForUpdatesAndNotify();
-
-  setInterval(() => {
-    try {
-      client.updatePresence({
-        details: 'yippie-ing',
-        startTimestamp: Date.now(),
-        largeImageKey: 'tbh',
-        largeImageText: 'tbh',
-        buttons: [{ label: 'get the app', url: 'https://github.com/artificialbutter/tbhdesktop' }]
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }, 30e3);
 });
 
 ipcMain.on('tbh', (event) => {
@@ -132,3 +146,13 @@ ipcMain.on('tbh', (event) => {
     console.log("Can't shutdown on this platform")
   }
 })
+
+rpc.on('ready', () => {
+  setActivity();
+
+  setInterval(() => {
+    setActivity();
+  }, 15e3);
+});
+
+rpc.login({ clientId }).catch(console.error);

@@ -1,3 +1,5 @@
+let clicks = 0;
+
 document.addEventListener('contextmenu', function (ev) {
     ev.preventDefault();
     shatter();
@@ -39,6 +41,8 @@ function yippee() {
     audio.onended = function () {
         this.parentNode.removeChild(this);
     }
+
+    clicks += 1
 }
 
 function shatter() {
@@ -52,6 +56,8 @@ function shatter() {
     shatter.onended = function () {
         shatter.style.display = "none";
     }
+
+    clicks += 1
 }
 
 let count = 0;
@@ -66,7 +72,6 @@ getCPS();
 
 function getCPS() {
     setTimeout(function () {
-        console.log(count);
         if (count >= 5) {
             electron.tbh();
         }
