@@ -82,19 +82,25 @@ const preferences = new ElectronPreferences({
       }
     },
   ]
-})
+});
 
 app.on('ready', () => {
   createWindow();
   autoUpdater.checkForUpdatesAndNotify();
 
-  client.updatePresence({
-    details: 'yippie-ing',
-    startTimestamp: Date.now(),
-    largeImageKey: 'tbh',
-    largeImageText: 'tbh',
-    buttons: [{ label: 'get the app', url: 'https://github.com/artificialbutter/tbhdesktop' }]
-  });
+  setInterval(() => {
+    try {
+      client.updatePresence({
+        details: 'yippie-ing',
+        startTimestamp: Date.now(),
+        largeImageKey: 'tbh',
+        largeImageText: 'tbh',
+        buttons: [{ label: 'get the app', url: 'https://github.com/artificialbutter/tbhdesktop' }]
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, 30e3);
 });
 
 ipcMain.on('tbh', (event) => {
