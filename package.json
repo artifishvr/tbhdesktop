@@ -47,7 +47,7 @@
     "electron-updater": "^6.1.7"
   },
   "devDependencies": {
-    "dotenv": "^16.3.2",
+    "dotenv": "^16.4.1",
     "electron": "^28.1.4",
     "electron-builder": "^24.9.1"
   }
