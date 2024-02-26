@@ -44,7 +44,7 @@
   "dependencies": {
     "discord-rpc": "^4.0.1",
     "electron-preferences": "^2.8.2",
-    "electron-updater": "^6.1.7"
+    "electron-updater": "^6.1.8"
   },
   "devDependencies": {
     "dotenv": "^16.4.3",
