@@ -12,8 +12,8 @@ dependencies:
     specifier: ^2.8.2
     version: 2.8.2(react-dom@18.2.0)(react@18.2.0)
   electron-updater:
-    specifier: ^6.1.7
-    version: 6.1.7
+    specifier: ^6.1.8
+    version: 6.1.8
 
 devDependencies:
   dotenv:
@@ -808,8 +808,8 @@ packages:
       - supports-color
     dev: true
 
-  /electron-updater@6.1.7:
-    resolution: {integrity: sha512-SNOhYizjkm4ET+Y8ilJyUzcVsFJDtINzVN1TyHnZeMidZEG3YoBebMyXc/J6WSiXdUaOjC7ngekN6rNp6ardHA==}
+  /electron-updater@6.1.8:
+    resolution: {integrity: sha512-hhOTfaFAd6wRHAfUaBhnAOYc+ymSGCWJLtFkw4xJqOvtpHmIdNHnXDV9m1MHC+A6q08Abx4Ykgyz/R5DGKNAMQ==}
     dependencies:
       builder-util-runtime: 9.2.3
       fs-extra: 10.1.0
