@@ -1,54 +1,12 @@
 {
   "name": "tbh",
-  "productName": "tbh",
-  "version": "1.10.0",
-  "description": "the autism creature",
-  "main": "index.js",
-  "repository": "https://github.com/artificialbutter/tbhdesktop",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
   "scripts": {
-    "start": "electron .",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder -p never",
-    "publish": "electron-builder -p always"
-  },
-  "build": {
-    "appId": "com.tbhcreature",
-    "productName": "tbh",
-    "artifactName": "${productName}-${version}.${ext}",
-    "win": {
-      "target": [
-        "nsis"
-      ]
-    },
-    "mac": {
-      "category": "public.app-category.educational-games",
-      "target": [
-        "dmg",
-        "zip"
-      ],
-      "identity": "Apple Development: dev@arti.lol (UK25TZ6YCW)"
-    },
-    "linux": {
-      "category": "Audio",
-      "target": [
-        "deb",
-        "AppImage"
-      ]
-    }
-  },
-  "author": {
-    "name": "artificial",
-    "email": "59352535+artificialbutter@users.noreply.github.com"
-  },
-  "license": "GPL-3.0-or-later",
-  "dependencies": {
-    "discord-rpc": "^4.0.1",
-    "electron-preferences": "^2.8.2",
-    "electron-updater": "^6.1.8"
+    "tauri": "tauri"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5",
-    "electron": "^29.3.0",
-    "electron-builder": "^24.13.3"
+    "@tauri-apps/cli": "^1"
   }
 }

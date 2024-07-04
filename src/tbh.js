@@ -1,4 +1,10 @@
+const invoke = window.__TAURI__.invoke
 let clicks = 0;
+let count = 0;
+let numSec = 1;
+let start = 0;
+
+getCPS();
 
 document.addEventListener('contextmenu', function (ev) {
     ev.preventDefault();
@@ -60,20 +66,15 @@ function shatter() {
     clicks += 1
 }
 
-let count = 0;
-let numSec = 1;
-let start = 0;
 window.addEventListener("click", function () {
     count++;
     start++;
 });
 
-getCPS();
-
 function getCPS() {
     setTimeout(function () {
-        if (count >= 5) {
-            electron.tbh();
+        if (count >= 7) {
+            invoke("tbh");
         }
         count = 0;
         getCPS();
