@@ -4,9 +4,17 @@
   "version": "2.0.0",
   "type": "module",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "tauri": "tauri"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1"
+    "@tauri-apps/cli": "^1",
+    "vite": "^5.3.3"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.6.0",
+    "canvas-confetti": "^1.9.3"
   }
 }

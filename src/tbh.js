@@ -1,8 +1,11 @@
-const invoke = window.__TAURI__.invoke
-let clicks = 0;
+import { invoke } from '@tauri-apps/api/tauri'
+import confetti from "canvas-confetti"
+document.getElementById('tbh').addEventListener("click", yippee);
+
 let count = 0;
 let numSec = 1;
 let start = 0;
+let clicks = 0;
 
 getCPS();
 
