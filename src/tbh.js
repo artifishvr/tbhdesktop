@@ -75,9 +75,15 @@ window.addEventListener("click", function () {
 });
 
 function getCPS() {
-    setTimeout(function () {
+    setTimeout(async function () {
         if (count >= 7) {
-            invoke("tbh");
+            if (await exists('app.conf', { dir: BaseDirectory.AppConfig })) {
+                const contents = await readTextFile('app.conf', { dir: BaseDirectory.AppConfig });
+
+                const settingsjson = JSON.parse(contents)
+
+                if (settingsjson.overload) invoke("tbh");
+            }
         }
         count = 0;
         getCPS();
