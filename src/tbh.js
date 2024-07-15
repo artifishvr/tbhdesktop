@@ -1,5 +1,11 @@
 import { invoke } from '@tauri-apps/api/tauri'
+import { createDir, exists, readTextFile, BaseDirectory } from '@tauri-apps/api/fs';
 import confetti from "canvas-confetti"
+
+if (!await exists('', { dir: BaseDirectory.AppConfig })) {
+    await createDir('', { dir: BaseDirectory.AppConfig })
+}
+
 document.getElementById('tbh').addEventListener("click", yippee);
 
 let count = 0;

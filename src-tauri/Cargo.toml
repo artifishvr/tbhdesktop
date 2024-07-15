@@ -1,6 +1,6 @@
 [package]
 name = "tbh"
-version = "2.0.1"
+version = "2.2.1"
 description = "tbh for your desktop"
 authors = ["artifishvr"]
 edition = "2021"
@@ -12,15 +12,15 @@ tauri-build = { version = "1", features = [] }
 
 [dependencies]
 tauri = { version = "1", features = [
-    "fs-read-dir",
-    "path-all",
     "fs-create-dir",
+    "shell-open",
+    "fs-exists",
     "fs-read-file",
     "fs-write-file",
-    "shell-open",
 ] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+discord-rich-presence = "0.2.3"
 
 [features]
 # This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!

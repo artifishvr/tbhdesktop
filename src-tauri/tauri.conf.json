@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "tbh",
-    "version": "2.1.0"
+    "version": "2.2.1"
   },
   "tauri": {
     "allowlist": {
@@ -20,7 +20,8 @@
         "readFile": true,
         "writeFile": true,
         "exists": true,
-        "scope": ["$APPCONFIG", "$APPCONFIG/*"]
+        "scope": ["$APPCONFIG", "$APPCONFIG/*"],
+        "createDir": true
       }
     },
     "windows": [

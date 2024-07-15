@@ -15,7 +15,9 @@ let span = document.getElementsByClassName("close")[0];
 btn.onclick = async function () {
     modal.style.display = "block";
 
-    if (!await exists('app.conf', { dir: BaseDirectory.AppConfig })) {
+    let configExists = await exists('app.conf', { dir: BaseDirectory.AppConfig })
+
+    if (!configExists) {
         await writeTextFile('app.conf', '{}', { dir: BaseDirectory.AppConfig });
     }
     // Read the text file in the `$APPCONFIG/app.conf` path
