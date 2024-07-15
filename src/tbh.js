@@ -2,9 +2,7 @@ import { invoke } from '@tauri-apps/api/tauri'
 import { createDir, exists, readTextFile, BaseDirectory } from '@tauri-apps/api/fs';
 import confetti from "canvas-confetti"
 
-if (!await exists('', { dir: BaseDirectory.AppConfig })) {
-    await createDir('', { dir: BaseDirectory.AppConfig })
-}
+checkConfigDir();
 
 document.getElementById('tbh').addEventListener("click", yippee);
 
@@ -94,4 +92,10 @@ function getCPS() {
         count = 0;
         getCPS();
     }, numSec * 1000);
+}
+
+async function checkConfigDir() {
+    if (!await exists('', { dir: BaseDirectory.AppConfig })) {
+        await createDir('', { dir: BaseDirectory.AppConfig })
+    }
 }
