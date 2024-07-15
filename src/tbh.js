@@ -1,6 +1,7 @@
 import { invoke } from '@tauri-apps/api/tauri'
 import { createDir, exists, readTextFile, BaseDirectory } from '@tauri-apps/api/fs';
-import confetti from "canvas-confetti"
+import confetti from "canvas-confetti";
+import yippeeAudio from './yippee.mp3';
 
 checkConfigDir();
 
@@ -47,7 +48,7 @@ function yippee() {
     }
 
     let audio = document.createElement('audio');
-    audio.src = "yippee.mp3";
+    audio.src = yippeeAudio;
     document.body.appendChild(audio);
     audio.play();
 
