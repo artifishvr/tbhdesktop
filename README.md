@@ -1,39 +1,32 @@
 # tbh desktop
+
+[![publish](https://github.com/artifishvr/tbhdesktop/actions/workflows/publish.yml/badge.svg)](https://github.com/artifishvr/tbhdesktop/actions/workflows/publish.yml)
+
 tbh for your desktop
 
-now on mobile too! [artificialbutter/tbhmobile](https://github.com/artificialbutter/tbhmobile)
+![screenshot of the default window for tbh desktop](screenshot.png)
 
 ## Usage
 
-Prebuilt builds for Windows 10/11, MacOS, and Linux (AppImage, deb) can be found in [Releases](https://github.com/artificialbutter/tbhdesktop/releases)
+Builds for Windows 10/11, MacOS (ARM and x64), and Linux (AppImage, deb, rpm) can be downloaded via GitHub Releases
 
 1. Install
-2. Click
-
+2. Click (but not too much...)
 
 ## Build/Run it yourself
-Requirements
-- [NodeJS](https://nodejs.org) LTS (>=v18.14)
-- pnpm 
-- [git](https://git-scm.com/)
 
-### Download Source
-`` git clone https://github.com/artificialbutter/tbhdesktop.git ``
+### Requirements
 
-### Install Dependencies
-`` pnpm ci ``
+- [Tauri v1 Prerequisites](https://tauri.app/v1/guides/getting-started/prerequisites)
+- [pnpm](https://pnpm.io/)
 
-### Start (Optional)
-`` pnpm start ``
-
-### Build executable (Optional)
-`` pnpm run dist ``
-
-you can find the built executable in /dist after it completes building
-
-## Contributing
-
-don't. 
+```bash
+git clone https://github.com/artifishvr/tbhdesktop.git
+cd tbhdesktop
+pnpm install
+pnpm tauri dev # to build and run the app in development mode
+pnpm tauri build # to build the app + installers for production
+```
 
 ## License
 

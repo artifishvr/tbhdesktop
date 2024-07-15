@@ -1,4 +1,17 @@
+import { invoke } from '@tauri-apps/api/tauri'
+import { createDir, exists, readTextFile, BaseDirectory } from '@tauri-apps/api/fs';
+import confetti from "canvas-confetti"
+
+checkConfigDir();
+
+document.getElementById('tbh').addEventListener("click", yippee);
+
+let count = 0;
+let numSec = 1;
+let start = 0;
 let clicks = 0;
+
+getCPS();
 
 document.addEventListener('contextmenu', function (ev) {
     ev.preventDefault();
@@ -60,22 +73,29 @@ function shatter() {
     clicks += 1
 }
 
-let count = 0;
-let numSec = 1;
-let start = 0;
 window.addEventListener("click", function () {
     count++;
     start++;
 });
 
-getCPS();
-
 function getCPS() {
-    setTimeout(function () {
-        if (count >= 5) {
-            electron.tbh();
+    setTimeout(async function () {
+        if (count >= 7) {
+            if (await exists('app.conf', { dir: BaseDirectory.AppConfig })) {
+                const contents = await readTextFile('app.conf', { dir: BaseDirectory.AppConfig });
+
+                const settingsjson = JSON.parse(contents)
+
+                if (settingsjson.overload) invoke("tbh");
+            }
         }
         count = 0;
         getCPS();
     }, numSec * 1000);
+}
+
+async function checkConfigDir() {
+    if (!await exists('', { dir: BaseDirectory.AppConfig })) {
+        await createDir('', { dir: BaseDirectory.AppConfig })
+    }
 }
