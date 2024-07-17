@@ -1,4 +1,4 @@
-import { exists, readTextFile, writeTextFile, BaseDirectory } from '@tauri-apps/api/fs';
+import { exists, readTextFile, writeTextFile, BaseDirectory } from '@tauri-apps/plugin-fs';
 
 let submitbutton = document.getElementById("save");
 

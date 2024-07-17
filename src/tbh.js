@@ -1,5 +1,5 @@
-import { invoke } from '@tauri-apps/api/tauri'
-import { createDir, exists, readTextFile, BaseDirectory } from '@tauri-apps/api/fs';
+import { invoke } from '@tauri-apps/api/core'
+import { createDir, exists, readTextFile, BaseDirectory } from '@tauri-apps/plugin-fs';
 import confetti from "canvas-confetti";
 import yippeeAudio from './yippee.mp3';
 

@@ -17,7 +17,7 @@ Builds for Windows 10/11, MacOS (ARM and x64), and Linux (AppImage, deb, rpm) ca
 
 ### Requirements
 
-- [Tauri v1 Prerequisites](https://tauri.app/v1/guides/getting-started/prerequisites)
+- [Tauri v2 Prerequisites](https://v2.tauri.app/start/prerequisites/)
 - [pnpm](https://pnpm.io/)
 
 ```bash

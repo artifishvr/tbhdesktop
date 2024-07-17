@@ -8,21 +8,21 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = { version = "1", features = [] }
+tauri-build = { version = "2.0.0-beta", features = [] }
 
 [dependencies]
-tauri = { version = "1", features = [
-    "updater",
-    "fs-create-dir",
-    "shell-open",
-    "fs-exists",
-    "fs-read-file",
-    "fs-write-file",
+tauri = { version = "2.0.0-beta", features = [
 ] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 discord-rich-presence = "0.2.3"
+tauri-plugin-fs = "2.0.0-beta.11"
+tauri-plugin-shell = "2.0.0-beta.9"
 
 [features]
 # This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
 custom-protocol = ["tauri/custom-protocol"]
+
+[lib]
+name = "app_lib"
+crate-type = ["staticlib", "cdylib", "rlib", "lib"]
