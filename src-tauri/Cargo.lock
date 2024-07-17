@@ -3165,7 +3165,7 @@ dependencies = [
 
 [[package]]
 name = "tbh"
-version = "2.2.4"
+version = "2.2.5"
 dependencies = [
  "discord-rich-presence",
  "serde",

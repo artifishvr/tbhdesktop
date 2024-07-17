@@ -3,11 +3,15 @@
 
 use discord_rich_presence::{activity, DiscordIpc, DiscordIpcClient};
 use std::process::Command;
+use std::thread;
+use std::time::Duration;
 use std::time::SystemTime;
 use std::time::UNIX_EPOCH;
 
 fn main() {
-    discord_rpc();
+    thread::spawn(|| {
+        discord_rpc();
+    });
 
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![tbh])
@@ -53,23 +57,26 @@ fn discord_rpc() {
         }
     };
 
-    let activity = activity::Activity::new();
-    let activity_details = activity.details("yippee-ing");
-    let activity_large_image = activity_details.assets(
-        activity::Assets::new()
-            .large_image("tbh")
-            .large_text("creature"),
-    );
-    let activity_button = activity_large_image.buttons(vec![activity::Button::new(
-        "get tbh on your desktop!",
-        "https://github.com/artifishvr/tbhdesktop/releases",
-    )]);
-    let activity_timestamp = activity_button
+    let activity = activity::Activity::new()
+        .state("yippee-ing")
+        .assets(
+            activity::Assets::new()
+                .large_image("tbh")
+                .large_text("creature"),
+        )
+        .buttons(vec![activity::Button::new(
+            "get tbh for your desktop!",
+            "https://github.com/artifishvr/tbhdesktop/releases",
+        )])
         .timestamps(activity::Timestamps::new().start(time_unix))
         .clone();
 
-    match client.set_activity(activity_timestamp) {
-        Ok(_) => println!("Successfully set discord activity"),
-        Err(_) => println!("Failed to set discord activity"),
-    };
+    loop {
+        thread::sleep(Duration::from_secs(10));
+
+        match client.set_activity(activity.clone()) {
+            Ok(_) => (),
+            Err(_) => break,
+        };
+    }
 }
