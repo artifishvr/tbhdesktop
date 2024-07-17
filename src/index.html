@@ -49,9 +49,29 @@
     </video>
 
     <img src="tbh.png" id="tbh" alt="tbh">
+
+    <a id="updatebanner" href="https://github.com/artifishvr/tbhdesktop/releases" target="_blank" style="display: none;">
+        <div class="banner">
+            <p id="updatetext">Update Available!<br>Click here to download!</p>
+        </div>
+    </a>
 </body>
 
 </html>
 
 <script src="tbh.js" type="module"></script>
 <script src="settingsmodal.js" type="module"></script>
+<script type="module">
+    import { checkUpdate } from '@tauri-apps/api/updater';
+
+    update();
+
+    async function update() {
+        const update = await checkUpdate();
+
+        if (update.shouldUpdate) {
+            document.getElementById("updatebanner").style.display = "block";
+            document.getElementById("updatetext").innerText = `Update Available (v${update.manifest.version})\nClick to download!`
+        }
+    }
+</script>

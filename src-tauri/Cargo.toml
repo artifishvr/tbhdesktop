@@ -1,6 +1,6 @@
 [package]
 name = "tbh"
-version = "2.2.5"
+version = "2.2.6"
 description = "tbh for your desktop"
 authors = ["artifishvr"]
 edition = "2021"

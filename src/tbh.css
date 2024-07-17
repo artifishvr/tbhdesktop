@@ -74,3 +74,17 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+.banner {
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #16a34a;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
