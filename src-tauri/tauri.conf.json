@@ -2,27 +2,36 @@
   "build": {
     "beforeDevCommand": "pnpm dev",
     "beforeBuildCommand": "pnpm build",
-    "devPath": "http://localhost:1420",
-    "distDir": "../src/dist"
+    "frontendDist": "../src/dist",
+    "devUrl": "http://localhost:1420"
   },
-  "package": {
-    "productName": "tbh",
-    "version": "2.2.6"
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "createUpdaterArtifacts": "v1Compatible"
   },
-  "tauri": {
-    "allowlist": {
-      "all": false,
-      "shell": {
-        "all": false,
-        "open": true
-      },
-      "fs": {
-        "readFile": true,
-        "writeFile": true,
-        "exists": true,
-        "scope": ["$APPCONFIG", "$APPCONFIG/*"],
-        "createDir": true
-      }
+  "productName": "tbh",
+  "mainBinaryName": "tbh",
+  "version": "2.2.6",
+  "identifier": "lol.arti.tbh",
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEZDRUFBRjkwN0RDMTMxQ0IKUldUTE1jRjlrSy9xL0JYaUZqbnFOKzhSNGZZR3RKRmJMbnMyZ0Z5NnpNOTk5dThZUmNZVFRwVmUK",
+      "endpoints": [
+        "https://github.com/artifishvr/tbhdesktop/releases/latest/download/latest.json"
+      ]
+    }
+  },
+  "app": {
+    "security": {
+      "csp": null
     },
     "windows": [
       {
@@ -30,29 +39,6 @@
         "width": 700,
         "height": 770
       }
-    ],
-    "security": {
-      "csp": null
-    },
-    "bundle": {
-      "active": true,
-      "targets": "all",
-      "identifier": "lol.arti.tbh",
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ]
-    },
-    "updater": {
-      "active": true,
-      "endpoints": [
-        "https://github.com/artifishvr/tbhdesktop/releases/latest/download/latest.json"
-      ],
-      "dialog": false,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEZDRUFBRjkwN0RDMTMxQ0IKUldUTE1jRjlrSy9xL0JYaUZqbnFOKzhSNGZZR3RKRmJMbnMyZ0Z5NnpNOTk5dThZUmNZVFRwVmUK"
-    }
+    ]
   }
 }

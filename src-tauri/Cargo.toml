@@ -1,28 +1,31 @@
 [package]
-name = "tbh"
-version = "2.2.6"
-description = "tbh for your desktop"
 authors = ["artifishvr"]
+description = "tbh for your desktop"
 edition = "2021"
+name = "tbh"
+version = "2.3.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = { version = "1", features = [] }
+tauri-build = {version = "2", features = []}
 
 [dependencies]
-tauri = { version = "1", features = [
-    "updater",
-    "fs-create-dir",
-    "shell-open",
-    "fs-exists",
-    "fs-read-file",
-    "fs-write-file",
-] }
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
 discord-rich-presence = "0.2.4"
+serde = {version = "1", features = ["derive"]}
+serde_json = "1"
+tauri = {version = "2", features = []}
+tauri-plugin-fs = "2"
+tauri-plugin-shell = "2"
+tauri-plugin-updater = "2"
 
 [features]
 # This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
 custom-protocol = ["tauri/custom-protocol"]
+
+[lib]
+crate-type = ["staticlib", "cdylib", "rlib"]
+name = "tbh_lib"
+
+[target."cfg(not(any(target_os = \"android\", target_os = \"ios\")))".dependencies]
+tauri-plugin-updater = "2"

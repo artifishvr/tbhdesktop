@@ -1,0 +1,20 @@
+{
+  "identifier": "migrated",
+  "description": "permissions that were migrated from v1",
+  "local": true,
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "fs:allow-read-file",
+    "fs:allow-write-file",
+    "fs:allow-mkdir",
+    "fs:allow-exists",
+    "shell:allow-open",
+    "shell:default",
+    "fs:default",
+    "fs:scope-appconfig",
+    "updater:allow-check",
+    "fs:allow-appconfig-write",
+    "fs:allow-appconfig-read"
+  ]
+}

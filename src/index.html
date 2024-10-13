@@ -62,16 +62,16 @@
 <script src="tbh.js" type="module"></script>
 <script src="settingsmodal.js" type="module"></script>
 <script type="module">
-    import { checkUpdate } from '@tauri-apps/api/updater';
+    import { check } from '@tauri-apps/plugin-updater';
 
     update();
 
     async function update() {
-        const update = await checkUpdate();
+        const update = await check();
 
-        if (update.shouldUpdate) {
+        if (update) {
             document.getElementById("updatebanner").style.display = "block";
-            document.getElementById("updatetext").innerText = `Update Available (v${update.manifest.version})\nClick to download!`
+            document.getElementById("updatetext").innerText = `Update Available (v${update.version})\nClick to download!`
         }
     }
 </script>
