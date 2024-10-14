@@ -19,7 +19,7 @@
   },
   "productName": "tbh",
   "mainBinaryName": "tbh",
-  "version": "2.4.0",
+  "version": "2.3.0",
   "identifier": "lol.arti.tbh",
   "plugins": {
     "updater": {
