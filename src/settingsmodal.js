@@ -1,4 +1,4 @@
-import { settingsStore } from "./stores.js";
+import { getSettingsStore } from "./stores.js";
 
 // Get the modal
 let modal = document.getElementById("myModal");
@@ -15,13 +15,11 @@ let funnytoggle = document.getElementById("funnytoggle");
 btn.onclick = async function () {
   modal.style.display = "block";
 
-  console.log(await settingsStore.get("overload"));
-
-  funnytoggle.checked = await settingsStore.get("overload");
+  funnytoggle.checked = await (await getSettingsStore()).get("overload");
 };
 
 funnytoggle.addEventListener("change", async function () {
-  await settingsStore.set("overload", this.checked);
+  await (await getSettingsStore()).set("overload", this.checked);
 });
 
 // When the user clicks on <span> (x), close the modal

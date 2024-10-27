@@ -1,5 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
-import { settingsStore } from "./stores.js";
+import { getSettingsStore } from "./stores.js";
 import confetti from "canvas-confetti";
 import yippeeAudio from "./yippee.mp3";
 
@@ -84,7 +84,7 @@ window.addEventListener("click", function () {
 function getCPS() {
   setTimeout(async function () {
     if (count >= 7) {
-      if ((await settingsStore.get("overload")) == true) {
+      if (await (await getSettingsStore()).get("overload")) {
         invoke("tbh");
       }
     }
