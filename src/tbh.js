@@ -22,7 +22,7 @@ document.addEventListener(
   false
 );
 
-function yippee() {
+async function yippee() {
   for (let i = 0; i < 50; i++) {
     confetti({
       particleCount: 10,
@@ -49,14 +49,32 @@ function yippee() {
     });
   }
 
-  let audio = document.createElement("audio");
-  audio.src = yippeeAudio;
-  document.body.appendChild(audio);
-  audio.play();
+  // i LOVE web audio
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  const audio = new Audio(yippeeAudio);
+  audio.volume = 0.5;
+  const source = audioContext.createMediaElementSource(audio);
+  source.connect(audioContext.destination);
 
-  audio.onended = function () {
-    this.parentNode.removeChild(this);
-  };
+  try {
+    if (audioContext.state === "suspended") {
+      await audioContext.resume();
+    }
+
+    await new Promise((resolve, reject) => {
+      audio.addEventListener("canplaythrough", resolve, { once: true });
+      audio.addEventListener("error", reject, { once: true });
+      audio.load();
+    });
+
+    await audio.play();
+
+    await new Promise((resolve) => {
+      audio.addEventListener("ended", resolve, { once: true });
+    });
+  } catch (error) {
+    console.error("Audio playback failed:", error);
+  }
 
   clicks += 1;
 }

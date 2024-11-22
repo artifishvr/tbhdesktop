@@ -7,9 +7,11 @@ use std::time::UNIX_EPOCH;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    thread::spawn(|| {
-        discord_rpc();
-    });
+    if cfg!(any(target_os = "macos", windows, target_os = "linux")) {
+        thread::spawn(|| {
+            discord_rpc();
+        });
+    }
 
     tauri::Builder::default()
         .plugin(tauri_plugin_store::Builder::new().build())

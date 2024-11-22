@@ -17,7 +17,7 @@ Builds for Windows 10/11, MacOS (ARM and x64), and Linux (AppImage, deb, rpm) ca
 
 ### Requirements
 
-- [Tauri Prerequisites (No Mobile Targets)](https://tauri.app/start/prerequisites/)
+- [Tauri Prerequisites](https://tauri.app/start/prerequisites/)
 - [pnpm](https://pnpm.io/)
 
 ```bash
@@ -26,6 +26,8 @@ cd tbhdesktop
 pnpm install
 pnpm tauri dev # to build and run the app in development mode
 pnpm tauri build # to build the app + installers for production
+pnpm tauri ios build # to build the app for iOS
+pnpm tauri android build # to build the app for Android (untested)
 ```
 
 ## License
